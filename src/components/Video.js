@@ -12,6 +12,7 @@ class Video extends Component {
           height="300px"
           display="initial"
           position="relative"
+          autoplay="1"
           allowFullScreen/>
       </div>
     );

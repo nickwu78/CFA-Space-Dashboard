@@ -19,13 +19,18 @@ class Map extends Component {
   }
 
   getISSPosition() {
-    axios.get(`http://api.open-notify.org/iss-now.json`)
+    setInterval(() => {
+      axios.get(`http://api.open-notify.org/iss-now.json`)
       .then(result => {
         this.setState({
           latitude: result.data.iss_position.latitude,
           longitude: result.data.iss_position.longitude
         })
       })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }, 5000);
   }
 
   onMapCreated(map) {
